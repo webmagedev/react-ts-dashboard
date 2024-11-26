@@ -20,23 +20,23 @@ export const tokens = (mode) => ({
           100: "#d0d1d5",
           200: "#a1a7ab",
           300: "#727a81",
-          400: "#1f3c40",
-          500: "#142d2c",
-          600: "#101e24",
-          700: "#0c181b",
-          800: "#081212",
-          900: "#040909",
+          400: "#191919",
+          500: "#121212",
+          600: "#241710",
+          700: "#1b120c",
+          800: "#120d08",
+          900: "#090604",
         },
-        greenAccent: {
+        secondaryAccent: {
           100: "#f5e8db",
           200: "#ebceb7",
           300: "#e2bc94",
           400: "#d8a670",
-          500: "#ce844c",
-          600: "#a56a3d",
-          700: "#7c5e2e",
-          800: "#52391e",
-          900: "#29220f",
+          500: "#ffba18",
+          600: "#a57d3d",
+          700: "#7c652e",
+          800: "#523e1e",
+          900: "#29240f",
         },
         redAccent: {
           100: "#f8dcdb",
@@ -53,12 +53,12 @@ export const tokens = (mode) => ({
           100: "#e1e2fe",
           200: "#c3c6fd",
           300: "#a4a9fc",
-          400: "#868dfb",
-          500: "#6870fa",
-          600: "#535ac8",
-          700: "#3e4396",
-          800: "#2a2d64",
-          900: "#151632",
+          400: "#86fbb3",
+          500: "#68fab1",
+          600: "#53c880",
+          700: "#3e9677",
+          800: "#2a643a",
+          900: "#153224",
         },
       }
     : {
@@ -84,7 +84,7 @@ export const tokens = (mode) => ({
           800: "#a1a4ab",
           900: "#d0d1d5",
         },
-        greenAccent: {
+        secondaryAccent: {
           100: "#0f2922",
           200: "#1e5245",
           300: "#2e7c67",
@@ -134,7 +134,7 @@ export const themeSettings = (mode) => {
               main: colors.primary[500],
             },
             secondary: {
-              main: colors.greenAccent[500],
+              main: colors.secondaryAccent[500],
             },
             neutral: {
               dark: colors.grey[700],
@@ -151,7 +151,7 @@ export const themeSettings = (mode) => {
               main: colors.primary[100],
             },
             secondary: {
-              main: colors.greenAccent[500],
+              main: colors.secondaryAccent[500],
             },
             neutral: {
               dark: colors.grey[700],
