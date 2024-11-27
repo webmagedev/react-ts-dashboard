@@ -2,7 +2,7 @@ import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 
 // color design tokens export
-export const tokens = (mode) => ({
+export const tokens = (mode?: string) => ({
   ...(mode === "dark"
     ? {
         grey: {
@@ -25,7 +25,7 @@ export const tokens = (mode) => ({
           600: "#241710",
           700: "#1b120c",
           800: "#120d08",
-          900: "#090604",
+          900: "#6b4c3c",
         },
         secondaryAccent: {
           100: "#f5e8db",
@@ -38,7 +38,7 @@ export const tokens = (mode) => ({
           800: "#523e1e",
           900: "#29240f",
         },
-        redAccent: {
+        darkAccent: {
           100: "#f8dcdb",
           200: "#f1b9b7",
           300: "#e99592",
@@ -49,16 +49,16 @@ export const tokens = (mode) => ({
           800: "#58201e",
           900: "#2c100f",
         },
-        blueAccent: {
+        lightAccent: {
           100: "#e1e2fe",
           200: "#c3c6fd",
           300: "#a4a9fc",
-          400: "#86fbb3",
-          500: "#68fab1",
-          600: "#53c880",
-          700: "#3e9677",
-          800: "#2a643a",
-          900: "#153224",
+          400: "#78813b",
+          500: "#5f5228",
+          600: "#c8a753",
+          700: "#967d3e",
+          800: "#645a2a",
+          900: "#322a15",
         },
       }
     : {
@@ -95,7 +95,7 @@ export const tokens = (mode) => ({
           800: "#b7ebde",
           900: "#dbf5ee",
         },
-        redAccent: {
+        darkAccent: {
           100: "#2c100f",
           200: "#58201e",
           300: "#832f2c",
@@ -106,7 +106,7 @@ export const tokens = (mode) => ({
           800: "#f1b9b7",
           900: "#f8dcdb",
         },
-        blueAccent: {
+        lightAccent: {
           100: "#151632",
           200: "#2a2d64",
           300: "#3e4396",
@@ -121,7 +121,7 @@ export const tokens = (mode) => ({
 });
 
 // mui theme settings
-export const themeSettings = (mode) => {
+export const themeSettings = (mode?: string) => {
   const colors = tokens(mode);
   const fontName = "Montserrat";
   return {
