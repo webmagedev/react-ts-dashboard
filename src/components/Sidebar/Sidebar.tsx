@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
+import {useState} from "react";
+import {ProSidebar, Menu, MenuItem} from "react-pro-sidebar";
+import {Box, IconButton, Typography, useTheme} from "@mui/material";
+import {Link, useLocation} from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
-import { tokens } from "@/theme";
+import {tokens} from "@/theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
@@ -17,20 +17,28 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 
-const NavItem = ({ title, to, icon, selected, setSelected }) => {
+interface Props {
+    title: string;
+    to: string;
+    icon: string;
+}
+
+const NavItem = ({title, to, icon}: Props) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+
+    const location = useLocation();
+
     return (
         <MenuItem
-            active={selected === title}
+            active={location.pathname === to}
             style={{
                 color: colors?.grey[100],
             }}
-            onClick={() => setSelected(title)}
             icon={icon}
         >
             <Typography>{title}</Typography>
-            <Link to={to} />
+            <Link to={to}/>
         </MenuItem>
     );
 };
@@ -39,7 +47,6 @@ const Sidebar = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const [isCollapsed, setIsCollapsed] = useState(false);
-    const [selected, setSelected] = useState("Dashboard");
 
     return (
         <Box
@@ -66,7 +73,7 @@ const Sidebar = () => {
                     {/* LOGO AND MENU ICON */}
                     <MenuItem
                         onClick={() => setIsCollapsed(!isCollapsed)}
-                        icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
+                        icon={isCollapsed ? <MenuOutlinedIcon/> : undefined}
                         style={{
                             margin: "10px 0 20px 0",
                             color: colors.grey[100],
@@ -83,7 +90,7 @@ const Sidebar = () => {
                                     Dashboard
                                 </Typography>
                                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                                    <MenuOutlinedIcon />
+                                    <MenuOutlinedIcon/>
                                 </IconButton>
                             </Box>
                         )}
@@ -97,7 +104,7 @@ const Sidebar = () => {
                                     width="100px"
                                     height="100px"
                                     src={`/user.png`}
-                                    style={{ cursor: "pointer", borderRadius: "50%" }}
+                                    style={{cursor: "pointer", borderRadius: "50%"}}
                                 />
                             </Box>
                             <Box textAlign="center">
@@ -105,7 +112,7 @@ const Sidebar = () => {
                                     variant="h2"
                                     color={colors.grey[100]}
                                     fontWeight="bold"
-                                    sx={{ m: "10px 0 0 0" }}
+                                    sx={{m: "10px 0 0 0"}}
                                 >
                                     Chief
                                 </Typography>
@@ -120,25 +127,31 @@ const Sidebar = () => {
                         <NavItem
                             title="Dashboard"
                             to="/"
-                            icon={<HomeOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
+                            icon={<HomeOutlinedIcon/>}
                         />
                     </Box>
 
                     <Typography
                         variant="h6"
                         color={colors.grey[300]}
-                        sx={{ m: "15px 0 5px 20px" }}
+                        sx={{m: "15px 0 5px 20px"}}
                     >
                         Data
                     </Typography>
                     <NavItem
                         title="Manage Team"
                         to="/team"
-                        icon={<PeopleOutlinedIcon />}
-                        selected={selected}
-                        setSelected={setSelected}
+                        icon={<PeopleOutlinedIcon/>}
+                    />
+                    <NavItem
+                        title="Contacts Information"
+                        to="/contacts"
+                        icon={<ContactsOutlinedIcon/>}
+                    />
+                    <NavItem
+                        title="Invoices Balances"
+                        to="/invoices"
+                        icon={<ReceiptOutlinedIcon/>}
                     />
                 </Menu>
             </ProSidebar>

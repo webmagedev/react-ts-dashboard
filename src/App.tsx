@@ -3,9 +3,11 @@ import {Routes, Route, BrowserRouter} from "react-router-dom";
 import {ColorModeContext, useMode} from "./theme";
 import {CssBaseline, ThemeProvider} from "@mui/material";
 import Dashboard from "@pages/Dashboard";
+import Contacts from "@pages/Contacts";
 import Sidebar from "@components/Sidebar";
 import Topbar from "@components/Topbar";
 import Team from "@pages/Team";
+import Invoices from "@pages/Invoices";
 
 function App() {
     const [theme, colorMode] = useMode();
@@ -21,8 +23,11 @@ function App() {
                         <main className="content">
                             <Topbar setIsSidebar={setIsSidebar}/>
                             <Routes>
+                                {/*//TODO: add interfaces to all pages*/}
                                 <Route path="/" element={<Dashboard/>}/>
+                                <Route path="/contacts" element={<Contacts />} />
                                 <Route path="/team" element={<Team />} />
+                                <Route path="/invoices" element={<Invoices />} />
                             </Routes>
                         </main>
                     </div>
