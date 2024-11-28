@@ -8,6 +8,9 @@ import Sidebar from "@components/Sidebar";
 import Topbar from "@components/Topbar";
 import Team from "@pages/Team";
 import Invoices from "@pages/Invoices";
+import Form from "@pages/Form";
+import Faq from "@pages/Faq";
+import Calendar from "@pages/Calendar";
 
 function App() {
     const [theme, colorMode] = useMode();
@@ -28,6 +31,9 @@ function App() {
                                 <Route path="/contacts" element={<Contacts />} />
                                 <Route path="/team" element={<Team />} />
                                 <Route path="/invoices" element={<Invoices />} />
+                                <Route path="/form" element={<Form />} />
+                                <Route path="/faq" element={<Faq />} />
+                                <Route path="/calendar" element={<Calendar />} />
                             </Routes>
                         </main>
                     </div>

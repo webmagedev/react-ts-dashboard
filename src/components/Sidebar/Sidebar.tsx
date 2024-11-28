@@ -153,6 +153,29 @@ const Sidebar = () => {
                         to="/invoices"
                         icon={<ReceiptOutlinedIcon/>}
                     />
+
+                    <Typography
+                        variant="h6"
+                        color={colors.grey[300]}
+                        sx={{ m: "15px 0 5px 20px" }}
+                    >
+                        Pages
+                    </Typography>
+                    <NavItem
+                        title="Profile Form"
+                        to="/form"
+                        icon={<PersonOutlinedIcon />}
+                    />
+                    <NavItem
+                        title="Calendar"
+                        to="/calendar"
+                        icon={<CalendarTodayOutlinedIcon />}
+                    />
+                    <NavItem
+                        title="FAQ Page"
+                        to="/faq"
+                        icon={<HelpOutlineOutlinedIcon />}
+                    />
                 </Menu>
             </ProSidebar>
         </Box>
