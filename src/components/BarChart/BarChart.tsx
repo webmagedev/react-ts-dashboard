@@ -72,7 +72,7 @@ const BarChart = ({ isDashboard = false}) => {
             ]}
             borderColor={{
                 from: "color",
-                modifiers: [["darker", "1.6"]],
+                modifiers: [["darker", 1.6]],
             }}
             axisTop={null}
             axisRight={null}

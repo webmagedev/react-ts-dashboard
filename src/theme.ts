@@ -1,9 +1,6 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 
-// color design tokens export
-//TODO: pick better color for color scheme
-
 export const tokens = (mode?: string) => ({
   ...(mode === "dark"
     ? {
@@ -79,7 +76,7 @@ export const tokens = (mode?: string) => ({
           100: "#040509",
           200: "#080b12",
           300: "#0c101b",
-          400: "#f2f0f0", // manually changed
+          400: "#f2f0f0",
           500: "#141b2d",
           600: "#1F2A40",
           700: "#727681",
@@ -87,15 +84,15 @@ export const tokens = (mode?: string) => ({
           900: "#d0d1d5",
         },
         secondaryAccent: {
-          100: "#29240f",
-          200: "#523e1e",
-          300: "#7c652e",
-          400: "#a57d3d",
-          500: "#ffba18",
-          600: "#d8a670",
-          700: "#e2bc94",
-          800: "#ebceb7",
-          900: "#f5e8db",
+          100: "#0f2922",
+          200: "#1e5245",
+          300: "#2e7c67",
+          400: "#3da58a",
+          500: "#4cceac",
+          600: "#70d8bd",
+          700: "#94e2cd",
+          800: "#b7ebde",
+          900: "#dbf5ee",
         },
         darkAccent: {
           100: "#2c100f",
@@ -122,7 +119,6 @@ export const tokens = (mode?: string) => ({
       }),
 });
 
-// mui theme settings
 export const themeSettings = (mode?: string) => {
   const colors = tokens(mode);
   const fontName = "Montserrat";
@@ -131,7 +127,6 @@ export const themeSettings = (mode?: string) => {
       mode: mode,
       ...(mode === "dark"
         ? {
-            // palette values for dark mode
             primary: {
               main: colors.primary[500],
             },
@@ -148,7 +143,6 @@ export const themeSettings = (mode?: string) => {
             },
           }
         : {
-            // palette values for light mode
             primary: {
               main: colors.primary[100],
             },
@@ -196,7 +190,6 @@ export const themeSettings = (mode?: string) => {
   };
 };
 
-// context for color mode
 export const ColorModeContext = createContext({
   toggleColorMode: () => {},
 });

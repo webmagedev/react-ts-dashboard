@@ -10,6 +10,11 @@ const PieChart = () => {
     <ResponsivePie
       data={data}
       theme={{
+        tooltip: {
+          container: {
+            color: '#000'
+          }
+        },
         axis: {
           domain: {
             line: {

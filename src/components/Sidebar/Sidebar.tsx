@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {ReactNode, useState} from "react";
 import {ProSidebar, Menu, MenuItem} from "react-pro-sidebar";
 import {Box, IconButton, Typography, useTheme} from "@mui/material";
 import {Link, useLocation} from "react-router-dom";
@@ -20,7 +20,7 @@ import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 interface Props {
     title: string;
     to: string;
-    icon: string;
+    icon: ReactNode;
 }
 
 const NavItem = ({title, to, icon}: Props) => {
@@ -175,6 +175,34 @@ const Sidebar = () => {
                         title="FAQ Page"
                         to="/faq"
                         icon={<HelpOutlineOutlinedIcon />}
+                    />
+
+                    <Typography
+                        variant="h6"
+                        color={colors.grey[300]}
+                        sx={{ m: "15px 0 5px 20px" }}
+                    >
+                        Charts
+                    </Typography>
+                    <NavItem
+                        title="Bar Chart"
+                        to="/bar"
+                        icon={<BarChartOutlinedIcon />}
+                    />
+                    <NavItem
+                        title="Pie Chart"
+                        to="/pie"
+                        icon={<PieChartOutlineOutlinedIcon />}
+                    />
+                    <NavItem
+                        title="Line Chart"
+                        to="/line"
+                        icon={<TimelineOutlinedIcon />}
+                    />
+                    <NavItem
+                        title="Geography Chart"
+                        to="/geography"
+                        icon={<MapOutlinedIcon />}
                     />
                 </Menu>
             </ProSidebar>

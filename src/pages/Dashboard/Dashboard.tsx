@@ -226,7 +226,7 @@ const Dashboard = () => {
                         alignItems="center"
                         mt="25px"
                     >
-                        <ProgressCircle size="125" />
+                        <ProgressCircle size={125} />
                         <Typography
                             variant="h5"
                             color={colors.secondaryAccent[500]}

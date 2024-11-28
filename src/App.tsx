@@ -10,7 +10,11 @@ import Team from "@pages/Team";
 import Invoices from "@pages/Invoices";
 import Form from "@pages/Form";
 import Faq from "@pages/Faq";
+import Bar from "@pages/Bar";
 import Calendar from "@pages/Calendar";
+import Pie from "@pages/Pie";
+import Line from "@pages/Line";
+import Geography from "@pages/Geography";
 
 function App() {
     const [theme, colorMode] = useMode();
@@ -26,7 +30,6 @@ function App() {
                         <main className="content">
                             <Topbar setIsSidebar={setIsSidebar}/>
                             <Routes>
-                                {/*//TODO: add interfaces to all pages*/}
                                 <Route path="/" element={<Dashboard/>}/>
                                 <Route path="/contacts" element={<Contacts />} />
                                 <Route path="/team" element={<Team />} />
@@ -34,6 +37,10 @@ function App() {
                                 <Route path="/form" element={<Form />} />
                                 <Route path="/faq" element={<Faq />} />
                                 <Route path="/calendar" element={<Calendar />} />
+                                <Route path="/bar" element={<Bar />} />
+                                <Route path="/pie" element={<Pie />} />
+                                <Route path="/line" element={<Line />} />
+                                <Route path="/geography" element={<Geography />} />
                             </Routes>
                         </main>
                     </div>

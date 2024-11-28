@@ -11,8 +11,12 @@ const GeographyChart = ({ isDashboard = false }) => {
   return (
     <ResponsiveChoropleth
       data={data}
-        // TODO: fix hover on chart
       theme={{
+        tooltip: {
+          container: {
+            color: '#000'
+          }
+        },
         axis: {
           domain: {
             line: {
