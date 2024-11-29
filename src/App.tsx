@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {Routes, Route, BrowserRouter} from "react-router-dom";
 import {ColorModeContext, useMode} from "./theme";
 import {CssBaseline, ThemeProvider} from "@mui/material";
@@ -18,17 +17,18 @@ import Geography from "@pages/Geography";
 
 function App() {
     const [theme, colorMode] = useMode();
-    const [isSidebar, setIsSidebar] = useState(true);
 
     return (
         <BrowserRouter>
+            {/*// @ts-expect-error find solution how to fix value type*/}
             <ColorModeContext.Provider value={colorMode}>
+                {/*// @ts-expect-error find solution how to fix theme type*/}
                 <ThemeProvider theme={theme}>
                     <CssBaseline/>
                     <div className="app">
-                        <Sidebar isSidebar={isSidebar}/>
+                        <Sidebar/>
                         <main className="content">
-                            <Topbar setIsSidebar={setIsSidebar}/>
+                            <Topbar />
                             <Routes>
                                 <Route path="/" element={<Dashboard/>}/>
                                 <Route path="/contacts" element={<Contacts />} />

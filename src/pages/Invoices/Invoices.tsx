@@ -29,7 +29,7 @@ const Invoices = () => {
             field: "cost",
             headerName: "Cost",
             flex: 1,
-            renderCell: (params) => (
+            renderCell: (params: {row: {cost: string}}) => (
                 <Typography color={colors.secondaryAccent[500]}>
                     ${params.row.cost}
                 </Typography>

@@ -12,6 +12,7 @@ const Form = () => {
             <Header title="CREATE USER" subtitle="Create a New User Profile" />
 
             <Formik
+                onSubmit={(values) => console.log(values)}
                 initialValues={initialValues}
                 validationSchema={checkoutSchema}
             >

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FullCalendar from "@fullcalendar/react";
-import { formatDate } from "@fullcalendar/core";
+import {DateSelectArg, EventClickArg, formatDate} from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -19,16 +19,17 @@ import { tokens } from "@/theme";
 const Calendar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [currentEvents, setCurrentEvents] = useState([]);
+  //TODO: fix type later
+  const [currentEvents, setCurrentEvents] = useState<any>([]);
 
-  const handleDateClick = (selected) => {
+  const handleDateClick = (selected: DateSelectArg) => {
     const title = prompt("Please enter a new title for your event");
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
 
     if (title) {
       calendarApi.addEvent({
-        id: `${selected.dateStr}-${title}`,
+        id: `${selected.startStr}-${title}`,
         title,
         start: selected.startStr,
         end: selected.endStr,
@@ -37,7 +38,7 @@ const Calendar = () => {
     }
   };
 
-  const handleEventClick = (selected) => {
+  const handleEventClick = (selected: EventClickArg) => {
     if (
       window.confirm(
         `Are you sure you want to delete the event '${selected.event.title}'`
@@ -54,13 +55,19 @@ const Calendar = () => {
       <Box display="flex" justifyContent="space-between">
         <Box
           flex="1 1 20%"
-          backgroundColor={colors.primary[400]}
           p="15px"
           borderRadius="4px"
+          sx={{
+            backgroundColor: colors.primary[400]
+          }}
         >
           <Typography variant="h5">Events</Typography>
           <List>
-            {currentEvents.map((event) => (
+            {currentEvents.map((event: {
+              id: string;
+              title: string;
+              start: string;
+            }) => (
               <ListItem
                 key={event.id}
                 sx={{

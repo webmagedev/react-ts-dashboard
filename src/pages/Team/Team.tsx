@@ -39,7 +39,16 @@ const Team = () => {
             field: "accessLevel",
             headerName: "Access Level",
             flex: 1,
-            renderCell: ({row: {access}}) => {
+            renderCell: ({row: {access}}: {
+                row: {
+                    id: number;
+                    name: string;
+                    email: string;
+                    age: number;
+                    phone: string;
+                    access: string;
+                }
+            }) => {
                 return (
                     <Box
                         width="60%"
@@ -47,14 +56,14 @@ const Team = () => {
                         p="5px"
                         display="flex"
                         justifyContent="center"
-                        backgroundColor={
-                            access === "admin"
+                        borderRadius="4px"
+                        sx={{
+                            backgroundColor: access === "admin"
                                 ? colors.secondaryAccent[600]
                                 : access === "manager"
                                     ? colors.secondaryAccent[700]
                                     : colors.secondaryAccent[700]
-                        }
-                        borderRadius="4px"
+                        }}
                     >
                         {access === "admin" && <AdminPanelSettingsOutlinedIcon/>}
                         {access === "manager" && <SecurityOutlinedIcon/>}
@@ -103,6 +112,7 @@ const Team = () => {
                     },
                 }}
             >
+                {/*// @ts-expect-error should find solution how to type columns*/}
                 <DataGrid checkboxSelection rows={mockDataTeam} columns={columns}/>
             </Box>
         </Box>

@@ -95,6 +95,7 @@ const Contacts = () => {
             >
                 <DataGrid
                     rows={mockDataContacts}
+                    // @ts-expect-error should find solution how to type columns
                     columns={columns}
                     components={{Toolbar: GridToolbar}}
                 />

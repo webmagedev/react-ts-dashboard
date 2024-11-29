@@ -1,8 +1,17 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { tokens } from "@/theme";
 import ProgressCircle from "@components/ProgressCircle";
+import {ReactNode} from "react";
 
-const StatBox = ({ title, subtitle, icon, progress, increase }) => {
+interface Props {
+    title: string;
+    subtitle: string;
+    progress: number;
+    icon: ReactNode;
+    increase: ReactNode;
+}
+
+const StatBox = ({ title, subtitle, icon, progress, increase }: Props) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
