@@ -114,7 +114,7 @@ const Sidebar = () => {
                                     fontWeight="bold"
                                     sx={{m: "10px 0 0 0"}}
                                 >
-                                    Chief
+                                    Ram G.
                                 </Typography>
                                 <Typography variant="h5" color={colors.secondaryAccent[500]}>
                                     Admin
